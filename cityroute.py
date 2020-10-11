@@ -41,6 +41,10 @@ while True:
         hops.append(ip)
         location = get_location(ip)
 
+        if "org" not in location:
+            location["org"] = "N/A"
+
+        
         if "error" in location:
             print(f"{i} {location},{ip}")
         if "bogon" in location:
