@@ -9,7 +9,7 @@ if len(sys.argv) < 2:
     exit()
 
 if "TOKEN" not in os.environ:
-    print("Set TOKEN to your token from ip.info")
+    print("Set TOKEN to your token from https://ipinfo.io")
     exit()
 
 host = sys.argv[1]
@@ -44,9 +44,9 @@ while True:
         if "error" in location:
             print(f"{i} {location},{ip}")
         if "bogon" in location:
-            print(f"{i} {ip: <16} {'LOCAL':>20}")
+            print(f"{i} {ip: <16} {'LOCAL':>82}")
         else:
-            print(f"{i} {ip: <16} {location['city'] : >20}")
+            print(f"{i} {ip: <16} {location['org'] : >60} {location['city'] : >20}")
     
     elif "* * *" in line:
         print(f"{i} TIMEOUT")
